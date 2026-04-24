@@ -83,6 +83,39 @@
         grid-template-columns: 1fr;
       }
     }
+.slider-container {
+  max-width: 700px;
+  margin: 30px auto;
+}
+
+.slider {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.slider img {
+  width: 100%;
+  display: block;
+}
+
+.before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  overflow: hidden;
+}
+
+.handle {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 4px;
+  height: 100%;
+  background: #fff;
+  cursor: ew-resize;
+}
   </style>
 </head>
 
@@ -101,9 +134,12 @@
     <h2>Before vs After</h2>
     <p>The difference professional branding makes</p>
 
-    <div class="grid">
-      <img src="before1.jpg" alt="Before">
-      <img src="after1.jpg" alt="After">
+    <div class="slider-container">
+      <div class="slider">
+        <img src="after1.jpg" class="after">
+        <img src="before1.jpg" class="before" id="beforeImage">
+        <div class="handle" id="handle"></div>
+      </div>
     </div>
   </div>
 
