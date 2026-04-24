@@ -1,198 +1,338 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daniel Y Studio | Branding Photography</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elevate Your Professional Brand | daniely.studio</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f0f0f;
-      color: #fff;
-      text-align: center;
-    }
+    <!--
+    ============================================================
+    IMAGE NAMING GUIDE — rename your 2 pairs and place them
+    in the same folder as this HTML file:
 
-    .container {
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
+      portrait_1_before.jpg  — your chosen "before" image (left slider)
+      portrait_1_after.jpg   — your chosen "after" image  (left slider)
 
-    h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
-    }
+      portrait_2_before.jpg  — your chosen "before" image (right slider)
+      portrait_2_after.jpg   — your chosen "after" image  (right slider)
+    ============================================================
+    -->
 
-    p {
-      font-size: 18px;
-      color: #ccc;
-    }
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    .hero img {
-      width: 100%;
-      border-radius: 12px;
-      margin-top: 20px;
-    }
+        :root {
+            --gold:  #c8a951;
+            --dark:  #0a0a0a;
+            --text:  #f0ede8;
+            --muted: #888;
+        }
 
-    .btn {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 16px 28px;
-      background: #fff;
-      color: #000;
-      font-weight: bold;
-      border-radius: 6px;
-      text-decoration: none;
-    }
+        html { scroll-behavior: smooth; }
 
-    .section {
-      margin-top: 60px;
-    }
+        body {
+            background: var(--dark);
+            color: var(--text);
+            font-family: 'Georgia', 'Times New Roman', serif;
+            overflow-x: hidden;
+        }
 
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px;
-      margin-top: 20px;
-    }
+        /* ── HEADER ── */
+        header {
+            text-align: center;
+            padding: 90px 24px 70px;
+            background: linear-gradient(180deg, #000 0%, var(--dark) 100%);
+        }
 
-    .grid img {
-      width: 100%;
-      border-radius: 10px;
-    }
+        .brand-name {
+            display: block;
+            font-family: 'Arial', sans-serif;
+            font-size: 11px;
+            letter-spacing: 5px;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 28px;
+        }
 
-    .testimonial {
-      font-style: italic;
-      color: #aaa;
-      margin-top: 15px;
-    }
+        header h1 {
+            font-size: clamp(38px, 7vw, 78px);
+            font-weight: 300;
+            line-height: 1.12;
+            letter-spacing: -1.5px;
+            margin-bottom: 28px;
+        }
+        header h1 em { font-style: italic; color: var(--gold); }
 
-    footer {
-      margin-top: 60px;
-      font-size: 14px;
-      color: #777;
-    }
+        header .sub {
+            font-size: clamp(15px, 2vw, 18px);
+            color: var(--muted);
+            max-width: 580px;
+            margin: 0 auto 44px;
+            line-height: 1.8;
+            font-style: italic;
+        }
 
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 28px;
-      }
-      .grid {
-        grid-template-columns: 1fr;
-      }
-    }
-.slider-container {
-  max-width: 700px;
-  margin: 30px auto;
-}
+        .cta-btn {
+            display: inline-block;
+            background: var(--gold);
+            color: #000;
+            padding: 16px 44px;
+            font-size: 11px;
+            letter-spacing: 3.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-family: 'Arial', sans-serif;
+            font-weight: 700;
+            transition: background 0.25s;
+        }
+        .cta-btn:hover { background: #fff; }
 
-.slider {
-  position: relative;
-  overflow: hidden;
-  border-radius: 10px;
-}
+        .divider {
+            width: 60px; height: 1px;
+            background: var(--gold);
+            margin: 0 auto; opacity: 0.4;
+        }
 
-.slider img {
-  width: 100%;
-  display: block;
-}
+        /* ── INTRO ── */
+        .intro {
+            text-align: center;
+            padding: 64px 24px;
+            max-width: 720px;
+            margin: 0 auto;
+        }
 
-.before {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  overflow: hidden;
-}
+        .eyebrow {
+            font-family: 'Arial', sans-serif;
+            font-size: 10px;
+            letter-spacing: 4px;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
 
-.handle {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 4px;
-  height: 100%;
-  background: #fff;
-  cursor: ew-resize;
-}
-  </style>
+        .intro h2 {
+            font-size: clamp(24px, 3.5vw, 36px);
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .intro p { color: var(--muted); line-height: 1.9; font-size: 16px; }
+
+        /* ── GALLERY ── */
+        .gallery { padding: 40px 24px 80px; max-width: 1200px; margin: 0 auto; }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 48px;
+        }
+
+        /* ── BEFORE/AFTER SLIDER ── */
+        .ba-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            overflow: hidden;
+            cursor: col-resize;
+            user-select: none;
+            -webkit-user-select: none;
+            background: #111;
+        }
+
+        .ba-container img {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+            pointer-events: none;
+        }
+
+        .ba-after { clip-path: inset(0 50% 0 0); }
+
+        .ba-handle {
+            position: absolute;
+            top: 0; bottom: 0; left: 50%;
+            width: 2px;
+            background: rgba(255,255,255,0.9);
+            transform: translateX(-50%);
+            z-index: 20;
+            pointer-events: none;
+        }
+
+        .ba-circle {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px; height: 50px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.55);
+            display: flex; align-items: center; justify-content: center;
+            pointer-events: all;
+            cursor: col-resize;
+        }
+        .ba-circle svg { width: 22px; height: 22px; }
+
+        .ba-labels {
+            position: absolute;
+            top: 14px; left: 14px; right: 14px;
+            display: flex; justify-content: space-between;
+            z-index: 15; pointer-events: none;
+        }
+
+        .ba-label {
+            font-family: 'Arial', sans-serif;
+            font-size: 10px; letter-spacing: 2.5px;
+            text-transform: uppercase;
+            padding: 5px 12px;
+            background: rgba(0,0,0,0.55);
+            color: rgba(255,255,255,0.85);
+        }
+        .ba-label.is-after {
+            background: rgba(200,169,81,0.92);
+            color: #000; font-weight: 700;
+        }
+
+        /* ── CTA ── */
+        .cta-section {
+            background: #000;
+            text-align: center;
+            padding: 90px 24px 80px;
+        }
+        .cta-section h2 {
+            font-size: clamp(30px, 5vw, 56px);
+            font-weight: 300; line-height: 1.15;
+            margin-bottom: 20px; letter-spacing: -1px;
+        }
+        .cta-section h2 em { font-style: italic; color: var(--gold); }
+        .cta-desc {
+            color: var(--muted);
+            margin: 0 auto 44px; font-size: 16px;
+            max-width: 480px; line-height: 1.8; font-style: italic;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            text-align: center; padding: 28px 24px;
+            background: #000; border-top: 1px solid #1a1a1a;
+            color: #444; font-family: 'Arial', sans-serif;
+            font-size: 11px; letter-spacing: 1.5px;
+        }
+        footer a { color: var(--gold); text-decoration: none; }
+
+        @media (max-width: 700px) {
+            .gallery-grid { grid-template-columns: 1fr; }
+            header { padding: 60px 20px 50px; }
+        }
+    </style>
 </head>
-
 <body>
 
-  <div class="container hero">
-    <h1>Stand Out. Get Noticed. Attract Premium Clients.</h1>
-    <p>High-end branding photography designed to elevate your presence and convert attention into business.</p>
+<!-- HEADER -->
+<header>
+    <span class="brand-name">daniely.studio</span>
+    <h1>Your Image Is<br><em>Your Brand.</em></h1>
+    <p class="sub">First impressions happen in milliseconds. See what one professional session can do for yours. Drag the slider.</p>
+    <a href="#contact" class="cta-btn">Book Your Session</a>
+</header>
 
-    <img src="your-best-photo.jpg" alt="Branding Photography">
+<!-- INTRO -->
+<section class="intro">
+    <p class="eyebrow">The Transformation</p>
+    <h2>One Session Changes Everything</h2>
+    <p>Whether you're a CEO, consultant, attorney, or entrepreneur — your photo speaks before you do. Professionals who invest in their image close more deals, build stronger trust, and command the rooms they walk into.</p>
+</section>
 
-    <a href="#contact" class="btn">Book Your Session</a>
-  </div>
+<div class="divider"></div>
 
-  <div class="container section">
-    <h2>Before vs After</h2>
-    <p>The difference professional branding makes</p>
+<!-- GALLERY -->
+<section class="gallery">
+    <div class="gallery-grid">
 
-    <div class="slider-container">
-      <div class="slider">
-        <img src="after1.jpg" class="after">
-        <img src="before1.jpg" class="before" id="beforeImage">
-        <div class="handle" id="handle"></div>
-      </div>
+        <!-- Slider 1 (left) -->
+        <div>
+            <div class="ba-container">
+                <img src="portrait_1_before.jpg" alt="Before" class="ba-before">
+                <img src="portrait_1_after.jpg"  alt="After"  class="ba-after">
+                <div class="ba-labels">
+                    <span class="ba-label">Before</span>
+                    <span class="ba-label is-after">After</span>
+                </div>
+                <div class="ba-handle"><div class="ba-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#444" stroke-width="2.5" stroke-linecap="round">
+                        <polyline points="9 18 3 12 9 6"/><polyline points="15 6 21 12 15 18"/>
+                    </svg>
+                </div></div>
+            </div>
+        </div>
+
+        <!-- Slider 2 (right) -->
+        <div>
+            <div class="ba-container">
+                <img src="portrait_2_before.jpg" alt="Before" class="ba-before">
+                <img src="portrait_2_after.jpg"  alt="After"  class="ba-after">
+                <div class="ba-labels">
+                    <span class="ba-label">Before</span>
+                    <span class="ba-label is-after">After</span>
+                </div>
+                <div class="ba-handle"><div class="ba-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#444" stroke-width="2.5" stroke-linecap="round">
+                        <polyline points="9 18 3 12 9 6"/><polyline points="15 6 21 12 15 18"/>
+                    </svg>
+                </div></div>
+            </div>
+        </div>
+
     </div>
-  </div>
+</section>
 
-  <div class="container section">
-    <h2>Why Clients Choose Me</h2>
-    <p>
-      ✔ Strategic branding approach<br>
-      ✔ Posing & direction included<br>
-      ✔ Designed for LinkedIn, websites & ads<br>
-      ✔ Fast turnaround & premium quality
-    </p>
-  </div>
+<!-- CTA -->
+<section class="cta-section" id="contact">
+    <p class="eyebrow">Ready to Transform?</p>
+    <h2>Let's Elevate<br><em>Your Brand.</em></h2>
+    <p class="cta-desc">Limited sessions available. Serving professionals in the St. Louis area and beyond.</p>
+    <a href="mailto:dyarosch@gmail.com" class="cta-btn">Book Your Session Today</a>
+</section>
 
-  <div class="container section">
-    <h2>What Clients Say</h2>
-    <p class="testimonial">
-      “This completely changed how people see my business. I started getting better clients immediately.”
-    </p>
-  </div>
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 <a href="#">daniely.studio</a> &nbsp;·&nbsp; All Rights Reserved</p>
+</footer>
 
-  <div class="container section" id="contact">
-    <h2>Ready to Elevate Your Brand?</h2>
-    <p>Spots are limited each month. Book now to secure your session.</p>
+<!-- SLIDER SCRIPT -->
+<script>
+(function () {
+    document.querySelectorAll('.ba-container').forEach(function (c) {
+        var after  = c.querySelector('.ba-after');
+        var handle = c.querySelector('.ba-handle');
+        if (!after || !handle) return;
 
-    <a href="#" class="btn">Book Now</a>
-  </div>
+        var down = false;
 
-  <footer>
-    © Daniel Y Studio
-  </footer>
+        function pct(x) {
+            var r = c.getBoundingClientRect();
+            return Math.max(1, Math.min(99, (x - r.left) / r.width * 100));
+        }
+
+        function set(p) {
+            after.style.clipPath = 'inset(0 ' + (100 - p) + '% 0 0)';
+            handle.style.left    = p + '%';
+        }
+
+        c.addEventListener('mousedown', function (e) { down = true; set(pct(e.clientX)); e.preventDefault(); });
+        document.addEventListener('mousemove', function (e) { if (down) set(pct(e.clientX)); });
+        document.addEventListener('mouseup',   function ()  { down = false; });
+
+        c.addEventListener('touchstart', function (e) { down = true; set(pct(e.touches[0].clientX)); }, { passive: true });
+        document.addEventListener('touchmove', function (e) { if (down) set(pct(e.touches[0].clientX)); }, { passive: true });
+        document.addEventListener('touchend',  function ()  { down = false; });
+
+        set(50);
+    });
+}());
+</script>
 
 </body>
 </html>
-<script>
-  const handle = document.getElementById('handle');
-  const before = document.getElementById('beforeImage');
-  const slider = document.querySelector('.slider');
-
-  let isDragging = false;
-
-  handle.addEventListener('mousedown', () => isDragging = true);
-  window.addEventListener('mouseup', () => isDragging = false);
-
-  window.addEventListener('mousemove', (e) => {
-    if (!isDragging) return;
-
-    const rect = slider.getBoundingClientRect();
-    let x = e.clientX - rect.left;
-
-    if (x < 0) x = 0;
-    if (x > rect.width) x = rect.width;
-
-    handle.style.left = x + 'px';
-    before.style.width = x + 'px';
-  });
-</script>
