@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Daniel Y Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      padding: 50px;
+      background: #111;
+      color: #fff;
+    }
+    img {
+      max-width: 300px;
+      border-radius: 10px;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 15px 25px;
+      background: #fff;
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>High-End Branding Photography</h1>
+  <p>Stand out. Get noticed. Attract premium clients.</p>
+
+  <img src="your-photo.jpg" alt="Photography">
+
+  <br>
+  <a href="#contact" class="btn">Book a Session</a>
+
+</body>
+</html>
