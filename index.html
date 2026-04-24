@@ -1,41 +1,139 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Daniel Y Studio</title>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daniel Y Studio | Branding Photography</title>
+
   <style>
     body {
-      font-family: Arial;
-      text-align: center;
-      padding: 50px;
-      background: #111;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f0f0f;
       color: #fff;
+      text-align: center;
     }
-    img {
-      max-width: 300px;
-      border-radius: 10px;
+
+    .container {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
     }
+
+    h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #ccc;
+    }
+
+    .hero img {
+      width: 100%;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+
     .btn {
       display: inline-block;
-      margin-top: 20px;
-      padding: 15px 25px;
+      margin-top: 25px;
+      padding: 16px 28px;
       background: #fff;
       color: #000;
-      text-decoration: none;
       font-weight: bold;
-      border-radius: 5px;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+
+    .section {
+      margin-top: 60px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .grid img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .testimonial {
+      font-style: italic;
+      color: #aaa;
+      margin-top: 15px;
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 14px;
+      color: #777;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 28px;
+      }
+      .grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
+
 <body>
 
-  <h1>High-End Branding Photography</h1>
-  <p>Stand out. Get noticed. Attract premium clients.</p>
+  <div class="container hero">
+    <h1>Stand Out. Get Noticed. Attract Premium Clients.</h1>
+    <p>High-end branding photography designed to elevate your presence and convert attention into business.</p>
 
-  <img src="your-photo.jpg" alt="Photography">
+    <img src="your-best-photo.jpg" alt="Branding Photography">
 
-  <br>
-  <a href="#contact" class="btn">Book a Session</a>
+    <a href="#contact" class="btn">Book Your Session</a>
+  </div>
+
+  <div class="container section">
+    <h2>Before vs After</h2>
+    <p>The difference professional branding makes</p>
+
+    <div class="grid">
+      <img src="before1.jpg" alt="Before">
+      <img src="after1.jpg" alt="After">
+    </div>
+  </div>
+
+  <div class="container section">
+    <h2>Why Clients Choose Me</h2>
+    <p>
+      ✔ Strategic branding approach<br>
+      ✔ Posing & direction included<br>
+      ✔ Designed for LinkedIn, websites & ads<br>
+      ✔ Fast turnaround & premium quality
+    </p>
+  </div>
+
+  <div class="container section">
+    <h2>What Clients Say</h2>
+    <p class="testimonial">
+      “This completely changed how people see my business. I started getting better clients immediately.”
+    </p>
+  </div>
+
+  <div class="container section" id="contact">
+    <h2>Ready to Elevate Your Brand?</h2>
+    <p>Spots are limited each month. Book now to secure your session.</p>
+
+    <a href="#" class="btn">Book Now</a>
+  </div>
+
+  <footer>
+    © Daniel Y Studio
+  </footer>
 
 </body>
 </html>
