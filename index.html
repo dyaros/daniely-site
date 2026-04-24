@@ -173,3 +173,26 @@
 
 </body>
 </html>
+<script>
+  const handle = document.getElementById('handle');
+  const before = document.getElementById('beforeImage');
+  const slider = document.querySelector('.slider');
+
+  let isDragging = false;
+
+  handle.addEventListener('mousedown', () => isDragging = true);
+  window.addEventListener('mouseup', () => isDragging = false);
+
+  window.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+
+    const rect = slider.getBoundingClientRect();
+    let x = e.clientX - rect.left;
+
+    if (x < 0) x = 0;
+    if (x > rect.width) x = rect.width;
+
+    handle.style.left = x + 'px';
+    before.style.width = x + 'px';
+  });
+</script>
