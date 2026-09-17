@@ -1,0 +1,702 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>The Spirit of St. Louis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&family=Space+Mono:wght@400;700&display=swap');
+
+  :root{
+    --ink-900:#15161a;
+    --ink-700:#34363d;
+    --ink-500:#6a6c72;
+    --paper-050:#eeece5;
+    --paper-100:#e2ded1;
+    --paper-000:#f7f6f2;
+    --brass:#a6813c;
+    --brass-dim:#7c6029;
+    --brass-bright:#c49a4c;
+    --line-on-dark:rgba(238,236,229,0.16);
+    --line-on-light:rgba(21,22,26,0.14);
+    --bg:var(--paper-000);
+    --fg:var(--ink-900);
+    --surface:var(--paper-050);
+    --surface-2:var(--paper-100);
+    --panel-dark:var(--ink-900);
+    --panel-dark-fg:var(--paper-050);
+    --panel-dark-2:var(--ink-700);
+    color-scheme: light;
+  }
+
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#101114;
+      --fg:#eeece5;
+      --surface:#1a1b20;
+      --surface-2:#212228;
+      --panel-dark:#0c0d10;
+      --panel-dark-fg:#eeece5;
+      --panel-dark-2:#1a1b20;
+      --line-on-light:rgba(238,236,229,0.14);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#101114;
+    --fg:#eeece5;
+    --surface:#1a1b20;
+    --surface-2:#212228;
+    --panel-dark:#0c0d10;
+    --panel-dark-fg:#eeece5;
+    --panel-dark-2:#1a1b20;
+    --line-on-light:rgba(238,236,229,0.14);
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--fg);
+    font-family:'Source Serif 4', Georgia, 'Times New Roman', serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{display:block;max-width:100%;}
+  h1,h2,h3{font-family:'Fraunces', Georgia, serif; text-wrap:balance; margin:0; font-weight:600;}
+  p{margin:0; line-height:1.65;}
+  a{color:inherit;}
+  .mono{font-family:'Space Mono', 'Courier New', monospace;}
+  .eyebrow{
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--brass);
+    display:inline-flex;
+    align-items:center;
+    gap:0.6em;
+  }
+  .eyebrow::before{content:"";width:1.4em;height:1px;background:var(--brass);display:inline-block;}
+  .wrap{max-width:1180px;margin:0 auto;padding-left:clamp(20px,5vw,64px);padding-right:clamp(20px,5vw,64px);}
+  .prose{max-width:38em;}
+  section{position:relative;}
+
+  /* ---------- top notice bar ---------- */
+  .top-bar{
+    background:var(--panel-dark);
+    color:var(--panel-dark-fg);
+    font-family:'Space Mono',monospace;
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-align:center;
+    padding:9px 12px;
+  }
+  .top-bar b{color:var(--brass-bright);}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    min-height:100svh;
+    display:flex;
+    align-items:flex-end;
+    background:var(--panel-dark);
+    overflow:hidden;
+  }
+  .hero-img{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    object-fit:cover;
+    object-position:60% 45%;
+    opacity:0.92;
+    animation:heroReveal 1.6s cubic-bezier(.2,.7,.2,1) both;
+  }
+  @keyframes heroReveal{ from{transform:scale(1.08); opacity:0;} to{transform:scale(1); opacity:0.92;} }
+  .hero::after{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      linear-gradient(180deg, rgba(12,13,16,0.15) 0%, rgba(12,13,16,0.10) 32%, rgba(12,13,16,0.72) 82%, rgba(12,13,16,0.92) 100%),
+      linear-gradient(90deg, rgba(12,13,16,0.55) 0%, rgba(12,13,16,0.05) 46%);
+  }
+  .hero-content{
+    position:relative; z-index:2;
+    width:100%;
+    padding:clamp(28px,7vw,72px) clamp(20px,5vw,64px) clamp(36px,6vw,64px);
+    color:var(--paper-050);
+    animation:heroFade 1.1s ease .5s both;
+  }
+  @keyframes heroFade{ from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:translateY(0);} }
+  .hero-eyebrow{font-family:'Space Mono',monospace; font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--brass-bright); margin-bottom:18px; display:block;}
+  .hero h1{
+    font-size:clamp(2.6rem, 7vw, 5.6rem);
+    line-height:0.98;
+    letter-spacing:-0.01em;
+    color:#f7f6f2;
+    max-width:14ch;
+  }
+  .hero-sub{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:clamp(1.1rem,2.4vw,1.5rem);
+    color:var(--paper-100);
+    margin-top:18px;
+    max-width:26ch;
+  }
+  .hero-copy{
+    margin-top:22px;
+    max-width:42ch;
+    font-size:1rem;
+    color:rgba(238,236,229,0.92);
+  }
+  .hero-actions{
+    margin-top:34px;
+    display:flex; flex-wrap:wrap; align-items:center; gap:20px;
+  }
+  .btn{
+    font-family:'Space Mono',monospace;
+    font-size:0.82rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    display:inline-flex; align-items:center; justify-content:center;
+    padding:16px 30px;
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:transform .18s ease, background .18s ease, color .18s ease, border-color .18s ease;
+    white-space:nowrap;
+  }
+  .btn:active{transform:translateY(1px);}
+  .btn-brass{ background:var(--brass); color:#141208; }
+  .btn-brass:hover{ background:var(--brass-bright); }
+  .btn-outline{ border-color:rgba(238,236,229,0.5); color:var(--paper-050); }
+  .btn-outline:hover{ border-color:var(--paper-050); background:rgba(238,236,229,0.08); }
+  .btn-secondary{ background:var(--brass); color:#141208; }
+  .btn-secondary:hover{ background:var(--brass-bright); }
+  .btn-dark{ background:var(--panel-dark); color:var(--paper-050); border-color:var(--panel-dark); }
+  .btn-dark:hover{ background:#000; }
+  .hero-meta{
+    margin-top:30px;
+    font-family:'Space Mono',monospace;
+    font-size:0.76rem;
+    letter-spacing:0.06em;
+    color:rgba(238,236,229,0.85);
+    display:flex; flex-wrap:wrap; gap:10px 14px; align-items:center;
+  }
+  .hero-meta .dot{opacity:.5;}
+
+  /* ---------- story ---------- */
+  .story{ background:var(--panel-dark); color:var(--panel-dark-fg); padding:clamp(70px,11vw,140px) 0; }
+  .story-grid{ display:grid; grid-template-columns: 0.9fr 1.1fr; gap:clamp(32px,5vw,80px); align-items:start; }
+  .story h2{ font-size:clamp(2rem,4vw,3rem); color:var(--paper-050); margin-top:14px; max-width:11ch; }
+  .story-lead{ font-family:'Fraunces',serif; font-style:italic; font-weight:400; font-size:1.2rem; color:var(--brass-bright); margin-top:22px; max-width:24ch; }
+  .story-body p{ margin-bottom:1.3em; color:rgba(238,236,229,0.94); font-size:1.03rem; }
+  .story-body p:first-of-type::first-letter{
+    font-family:'Fraunces',serif; font-weight:600; font-size:3.4em; float:left; line-height:0.8;
+    padding-right:0.09em; padding-top:0.06em; color:var(--brass);
+  }
+  .clarify{
+    margin-top:36px;
+    padding:20px 22px;
+    border:1px solid var(--line-on-dark);
+    border-left:3px solid var(--brass);
+    background:rgba(238,236,229,0.04);
+    font-family:'Space Mono',monospace;
+    font-size:0.82rem;
+    line-height:1.7;
+    color:rgba(238,236,229,0.9);
+  }
+  .clarify b{ color:var(--paper-050); }
+
+  /* ---------- size selector ---------- */
+  .photo-full{ background:var(--panel-dark); padding:clamp(50px,8vw,90px) 0; text-align:center; }
+  .photo-full-head{ max-width:52ch; margin:0 auto clamp(28px,4vw,40px); }
+  .photo-full-head h2{ color:var(--paper-050); font-size:clamp(1.7rem,3.2vw,2.3rem); margin-top:14px; }
+  .photo-full-head p{ margin-top:14px; color:rgba(238,236,229,0.75); font-size:0.98rem; }
+  .photo-full-frame{ max-width:900px; margin:0 auto; border:1px solid var(--line-on-dark); }
+  .photo-full-frame img{ display:block; width:100%; height:auto; }
+  .photo-full-cap{ margin-top:16px; font-family:'Space Mono',monospace; font-size:0.72rem; letter-spacing:0.04em; color:rgba(238,236,229,0.55); }
+
+  .sizes{ background:var(--bg); padding:clamp(70px,11vw,140px) 0; }
+  .sizes-head{ max-width:44ch; margin-bottom:clamp(40px,6vw,64px); }
+  .sizes-head h2{ font-size:clamp(2rem,4vw,3rem); margin-top:14px; }
+  .size-grid{ display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+  .size-card{
+    border:1px solid var(--line-on-light);
+    background:var(--surface);
+    padding:clamp(26px,3vw,40px);
+    display:flex; flex-direction:column; height:100%;
+    position:relative;
+  }
+  .size-card.featured{
+    background:var(--panel-dark);
+    color:var(--panel-dark-fg);
+    border-color:var(--panel-dark);
+  }
+  .size-tag{
+    position:absolute; top:0; right:0;
+    font-family:'Space Mono',monospace; font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase;
+    background:var(--brass); color:#141208; padding:7px 14px;
+  }
+  .size-name{ font-family:'Fraunces',serif; font-weight:600; font-size:clamp(1.8rem,3vw,2.4rem); }
+  .size-card.featured .size-name{ color:var(--paper-050); }
+  .size-dims{ font-family:'Space Mono',monospace; font-size:0.78rem; letter-spacing:0.05em; opacity:.65; margin-top:6px; }
+  .size-price{ font-family:'Fraunces',serif; font-weight:500; font-size:2rem; margin-top:22px; }
+  .size-ship{ font-family:'Space Mono',monospace; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--brass); margin-top:6px; }
+  .size-desc{ margin-top:18px; font-size:0.96rem; opacity:.85; flex-grow:1; }
+  .size-card .btn{ margin-top:26px; width:100%; }
+  .size-card:not(.featured) .btn{ background:var(--brass); color:#141208; }
+  .size-card:not(.featured) .btn:hover{ background:var(--brass-bright); }
+  .size-card.featured .btn{ background:var(--brass); color:#141208; }
+  .size-card.featured .btn:hover{ background:var(--brass-bright); }
+  .size-note{ margin-top:30px; font-family:'Space Mono',monospace; font-size:0.76rem; letter-spacing:0.03em; opacity:.6; }
+  .trust-badge{
+    margin:18px 0 0;
+    width:100%;
+    box-sizing:border-box;
+    display:flex; align-items:center; justify-content:center; gap:9px;
+    font-family:'Space Mono',monospace;
+    font-size:0.76rem;
+    letter-spacing:0.03em;
+    color:inherit;
+    opacity:0.85;
+    border:1px solid var(--brass);
+    border-radius:6px;
+    padding:14px 20px;
+    background:rgba(166,129,60,0.06);
+  }
+  .trust-badge svg{ flex:0 0 auto; color:var(--brass); }
+  .final .trust-badge{
+    grid-column:1 / -1;
+    width:auto; max-width:none;
+    margin:0;
+    font-family:'Space Mono',monospace; font-style:normal; font-size:0.76rem;
+    color:var(--panel-dark-fg); opacity:0.85;
+  }
+
+  /* ---------- see it in your space ---------- */
+  .visual{ background:var(--surface); padding:clamp(70px,11vw,140px) 0; }
+  .visual-head{ max-width:46ch; margin-bottom:clamp(40px,6vw,64px); }
+  .visual-head h2{ font-size:clamp(2rem,4vw,3rem); margin-top:14px; }
+  .visual-disclaimer{ margin-top:18px; font-size:0.74rem; letter-spacing:0.02em; line-height:1.7; color:var(--ink-500); max-width:52ch; }
+  .visual-item{ margin-bottom:clamp(40px,6vw,64px); }
+  .visual-item:last-of-type{ margin-bottom:0; }
+  .visual-frame{
+    position:relative;
+    border:1px solid var(--line-on-light);
+    overflow:hidden;
+    background:var(--panel-dark);
+  }
+  .visual-frame img{ width:100%; height:auto; }
+  .visual-cap{
+    display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap;
+    margin-top:16px;
+    padding-top:14px;
+    border-top:1px solid var(--line-on-light);
+  }
+  .visual-cap .name{ font-family:'Fraunces',serif; font-weight:600; font-size:1.15rem; }
+  .visual-cap .spec{ font-family:'Space Mono',monospace; font-size:0.76rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--brass-dim); }
+
+  .quality-row{
+    margin-top:clamp(48px,6vw,72px);
+    display:grid; grid-template-columns: 0.8fr 1.2fr; gap:clamp(28px,5vw,56px); align-items:center;
+    padding-top:clamp(48px,6vw,72px);
+    border-top:1px solid var(--line-on-light);
+  }
+  .frame-shot{ border:1px solid var(--line-on-light); background:var(--panel-dark); }
+  .frame-shot img{ width:100%; }
+  .frame-shot-cap{ font-family:'Space Mono',monospace; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; margin-top:12px; color:var(--brass-dim); }
+  .quality-list{ display:flex; flex-direction:column; gap:26px; }
+  .quality-list h3{ font-size:1.15rem; font-weight:600; }
+  .quality-list .q-item{ display:flex; gap:18px; align-items:flex-start; }
+  .q-num{ font-family:'Space Mono',monospace; font-size:0.78rem; color:var(--brass); padding-top:5px; }
+  .q-item p{ margin-top:6px; font-size:0.95rem; color:var(--ink-500); max-width:44ch; }
+
+  /* ---------- st louis ---------- */
+  .stl{ background:var(--panel-dark); color:var(--panel-dark-fg); padding:clamp(70px,11vw,140px) 0; }
+  .stl-grid{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(32px,5vw,72px); align-items:start; }
+  .stl h2{ font-size:clamp(2rem,4vw,3rem); color:var(--paper-050); margin-top:14px; }
+  .stl-body p{ color:rgba(238,236,229,0.94); margin-bottom:1.2em; font-size:1.02rem; }
+  .tag-row{ display:flex; flex-wrap:wrap; gap:10px; margin-top:28px; }
+  .tag{
+    font-family:'Space Mono',monospace; font-size:0.72rem; letter-spacing:0.05em;
+    border:1px solid var(--line-on-dark); padding:8px 14px; color:rgba(238,236,229,0.88);
+  }
+
+  /* ---------- about the photographer ---------- */
+  .about{ background:var(--bg); padding:clamp(70px,10vw,120px) 0; }
+  .about-grid{ display:grid; grid-template-columns: 0.62fr 1.38fr; gap:clamp(32px,5vw,64px); align-items:center; }
+  .about-photo{ border:1px solid var(--line-on-light); overflow:hidden; }
+  .about-photo img{ width:100%; height:100%; object-fit:cover; filter:grayscale(1); }
+  .about h2{ font-size:clamp(1.9rem,3.4vw,2.6rem); margin-top:14px; }
+  .about-role{ font-family:'Space Mono',monospace; font-size:0.78rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--brass-dim); margin-top:8px; display:block; }
+  .about-body{ margin-top:20px; max-width:52ch; }
+  .about-body p{ font-size:1rem; color:var(--ink-500); margin-bottom:1.1em; }
+  .about-body p:last-child{ margin-bottom:0; }
+  .about-sig{ margin-top:20px; font-family:'Fraunces',serif; font-style:italic; font-size:1.05rem; color:var(--fg); }
+
+  /* ---------- professional ---------- */
+  .pro{ background:var(--bg); padding:clamp(60px,9vw,110px) 0; }
+  .pro-box{
+    border:1px solid var(--line-on-light);
+    padding:clamp(32px,5vw,56px);
+    display:grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap:clamp(32px,5vw,56px);
+  }
+  .pro-box h2{ font-size:clamp(1.6rem,3vw,2.2rem); max-width:14ch; }
+  .pro-box p{ margin-top:18px; max-width:42ch; font-size:0.98rem; color:var(--ink-500); }
+  .pro-list{ list-style:none; margin:0; padding:0; columns:2; gap:10px 24px; font-family:'Space Mono',monospace; font-size:0.8rem; }
+  .pro-list li{ padding:9px 0; border-bottom:1px solid var(--line-on-light); break-inside:avoid; }
+  .pro-cta{ margin-top:24px; }
+
+  /* ---------- final cta ---------- */
+  .final{ background:var(--panel-dark); color:var(--panel-dark-fg); padding:clamp(80px,12vw,150px) 0 clamp(60px,9vw,110px); text-align:center; }
+  .final-inner{ max-width:720px; margin:0 auto; }
+  .final h2{ font-size:clamp(2.1rem,5vw,3.4rem); color:var(--paper-050); margin-top:16px; text-wrap:balance; }
+  .final p{ margin-top:20px; color:rgba(238,236,229,0.92); font-family:'Fraunces',serif; font-style:italic; font-size:1.1rem; }
+  .final-sizes{
+    margin-top:56px; display:grid; grid-template-columns:1fr 1fr; gap:20px; text-align:left;
+    max-width:640px; margin-left:auto; margin-right:auto;
+  }
+  .final-size{ border:1px solid var(--line-on-dark); padding:22px; }
+  .final-size .name{ font-family:'Fraunces',serif; font-weight:600; font-size:1.3rem; color:var(--paper-050); }
+  .final-size .price{ font-family:'Space Mono',monospace; font-size:1rem; color:var(--brass-bright); margin-top:6px; }
+  .final-size .ship{ font-family:'Space Mono',monospace; font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; opacity:.6; margin-top:4px;}
+  .final-size .btn{ margin-top:18px; width:100%; }
+
+  .trust{
+    margin-top:60px; padding-top:36px; border-top:1px solid var(--line-on-dark);
+    max-width:56ch; margin-left:auto; margin-right:auto; text-align:left;
+  }
+  .trust p{ font-family:'Space Mono',monospace; font-size:0.72rem; line-height:1.9; color:rgba(238,236,229,0.75); }
+  .trust p + p{ margin-top:8px; }
+
+  footer{ background:var(--panel-dark); color:rgba(238,236,229,0.6); font-family:'Space Mono',monospace; font-size:0.7rem; text-align:center; padding:22px 16px 100px; letter-spacing:0.04em;}
+  footer a{text-decoration:underline;}
+
+  /* ---------- sticky mobile bar ---------- */
+  .sticky-bar{
+    position:fixed; left:0; right:0; bottom:0; z-index:50;
+    background:var(--panel-dark); color:var(--panel-dark-fg);
+    border-top:1px solid var(--line-on-dark);
+    display:none;
+    padding:12px 14px calc(12px + env(safe-area-inset-bottom));
+    align-items:center; justify-content:space-between; gap:12px;
+  }
+  .sticky-bar .sel{ font-family:'Space Mono',monospace; font-size:0.72rem; line-height:1.4; }
+  .sticky-bar .sel b{ display:block; font-family:'Fraunces',serif; font-size:1rem; color:var(--paper-050); font-weight:600; }
+  .sticky-bar .btn{ padding:13px 22px; font-size:0.76rem; }
+
+  @media (max-width: 980px){
+    .story-grid, .stl-grid, .pro-box, .quality-row{ grid-template-columns:1fr; }
+    .size-grid{ grid-template-columns:1fr; }
+    .pro-list{ columns:1; }
+    .final-sizes{ grid-template-columns:1fr; }
+    .sticky-bar{ display:flex; }
+    body{ padding-bottom:74px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .hero-img, .hero-content{ animation:none !important; }
+  }
+</style>
+
+<div class="top-bar">Personally photographed at the Missouri History Museum, Forest Park &middot; <b>Free shipping, both sizes</b></div>
+
+<header class="hero">
+  <img class="hero-img" src="images/hero-photograph.jpg" alt="Black and white photograph of the Spirit of St. Louis replica aircraft suspended in the Missouri History Museum, St. Louis">
+  <div class="hero-content">
+    <span class="hero-eyebrow">A fine-art photograph &middot; Est. Forest Park, St. Louis</span>
+    <h1>The Spirit<br>of St. Louis</h1>
+    <p class="hero-sub">Aviation history, captured in black and white.</p>
+    <p class="hero-copy">A personal photograph of a faithful replica of the legendary Spirit of St. Louis, taken at the Missouri History Museum in Forest Park &mdash; printed as a large-format gallery canvas in a black floating frame.</p>
+    <div class="hero-actions">
+      <a href="#sizes" class="btn btn-brass" data-track="cta_choose_size">Choose Your Size</a>
+      <a href="#story" class="btn btn-outline">Read the Story</a>
+    </div>
+    <div class="hero-meta">
+      <span>36&Prime; &times; 54&Prime; &mdash; $795</span><span class="dot">&middot;</span>
+      <span>48&Prime; &times; 72&Prime; &mdash; $1,095</span><span class="dot">&middot;</span>
+      <span>Free shipping</span>
+    </div>
+  </div>
+</header>
+
+<section class="story" id="story">
+  <div class="wrap story-grid">
+    <div>
+      <span class="eyebrow">The story</span>
+      <h2>A piece of aviation history</h2>
+      <p class="story-lead">&ldquo;Each click of the shutter felt like a tribute to the daring spirit of Charles Lindbergh.&rdquo;</p>
+    </div>
+    <div class="story-body">
+      <p>As I stepped into the Missouri History Museum at Forest Park in St. Louis, I felt a rush of excitement coursing through me. I was on a quest to capture the spirit of adventure embodied by the iconic Spirit of St. Louis airplane &mdash; this replica, a faithful tribute to the original aircraft flown by Charles Lindbergh, held a special place in my heart.</p>
+      <p>The Spirit of St. Louis carried the name of the city whose financial backers helped make Lindbergh's historic flight possible. Lindbergh's historic solo flight across the Atlantic in 1927 captivated the world and cemented St. Louis's place in aviation history. This replica had made its own mark too, appearing in the film <em>The Spirit of St. Louis</em>, starring Jimmy Stewart.</p>
+      <p>My personal connection to this legendary plane began years ago, when I first saw it hanging proudly in Lambert Airport. Its sleek silhouette against the backdrop of the bustling terminal left an indelible impression on me. Standing before the replica in the museum, camera in hand, I felt a surge of nostalgia mixed with anticipation as I began to capture its essence &mdash; the gleaming metal, the sturdy wings that once carried dreams across continents, and the intangible spirit of adventure that seemed to linger in the air.</p>
+      <p>In that moment, I felt a profound connection to history, to the city of St. Louis, and to the timeless allure of flight.</p>
+      <div class="clarify"><b>About the aircraft &mdash;</b> the aircraft depicted in this photograph is a faithful replica of the original Spirit of St. Louis flown by Charles Lindbergh. This photograph is an original work by the photographer.</div>
+    </div>
+  </div>
+</section>
+
+<section class="photo-full">
+  <div class="wrap">
+    <div class="photo-full-head">
+      <span class="eyebrow">The photograph</span>
+      <h2>Here's exactly what you're ordering</h2>
+      <p>The full, uncropped photograph &mdash; before any room styling or framing mockups. This is the image printed on your canvas.</p>
+    </div>
+    <div class="photo-full-frame">
+      <img src="images/hero-photograph.jpg" alt="The Spirit of St. Louis — full, unedited photograph of the replica aircraft as it hangs in the Missouri History Museum, before cropping or framing">
+    </div>
+    <p class="photo-full-cap">Original photograph &middot; Missouri History Museum, Forest Park, St. Louis</p>
+  </div>
+</section>
+
+<section class="sizes" id="sizes">
+  <div class="wrap">
+    <div class="sizes-head">
+      <span class="eyebrow">Choose your size</span>
+      <h2>Two sizes. One statement piece.</h2>
+    </div>
+    <div class="size-grid">
+      <div class="size-card">
+        <div class="size-name">36&Prime; &times; 54&Prime;</div>
+        <div class="size-dims mono">91 &times; 137 cm</div>
+        <div class="size-price mono">$795</div>
+        <div class="size-ship">Free shipping</div>
+        <p class="size-desc">A substantial statement piece for a living room, study, private office, or any large wall that deserves a focal point.</p>
+        <a href="https://buy.stripe.com/28EaEX0q6cg41mqbxcfEk01" class="btn" data-track="select_item_36x54" data-size="36&#34; &times; 54&#34;" data-price="795" target="_blank" rel="noopener">Buy 36&Prime; &times; 54&Prime;</a>
+      </div>
+      <div class="size-card featured">
+        <span class="size-tag">Statement size</span>
+        <div class="size-name">48&Prime; &times; 72&Prime;</div>
+        <div class="size-dims mono">122 &times; 183 cm</div>
+        <div class="size-price mono">$1,095</div>
+        <div class="size-ship">Free shipping</div>
+        <p class="size-desc">A dramatic statement piece designed for larger walls &mdash; executive offices, conference rooms, reception areas, and sophisticated interiors.</p>
+        <a href="https://buy.stripe.com/6oU00jb4Keoc6GKat8fEk00" class="btn" data-track="select_item_48x72" data-size="48&#34; &times; 72&#34;" data-price="1095" target="_blank" rel="noopener">Buy 48&Prime; &times; 72&Prime;</a>
+      </div>
+    </div>
+    <p class="size-note">Both sizes are printed on premium photographic canvas and finished in a black floating frame, ready to hang.</p>
+    <p class="trust-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><rect x="3" y="11" width="18" height="10" rx="1.5"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+      Checkout is handled securely by Stripe &mdash; your card details are never seen or stored by us.
+    </p>
+  </div>
+</section>
+
+<section class="visual">
+  <div class="wrap">
+    <div class="visual-head">
+      <span class="eyebrow">See it in your space</span>
+      <h2>Built to command a room.</h2>
+      <p class="visual-disclaimer mono">Room settings below are AI-generated visualizations intended to illustrate approximate scale and placement &mdash; not photographs of an actual installation. Actual appearance and perceived scale will vary by room.</p>
+    </div>
+
+    <div class="visual-item">
+      <div class="visual-frame"><img src="images/room-livingroom.jpg" alt="The Spirit of St. Louis canvas at 48 by 72 inches, framed in black, hanging above a fireplace in a bright living room"></div>
+      <div class="visual-cap">
+        <span class="name">Living room, 48&Prime; &times; 72&Prime;</span>
+        <span class="spec mono">Statement size &mdash; $1,095</span>
+      </div>
+    </div>
+
+    <div class="visual-item">
+      <div class="visual-frame"><img src="images/room-office.jpg" alt="The Spirit of St. Louis canvas at 36 by 54 inches, framed in black, hanging above a desk in an executive office"></div>
+      <div class="visual-cap">
+        <span class="name">Executive office, 36&Prime; &times; 54&Prime;</span>
+        <span class="spec mono">$795</span>
+      </div>
+    </div>
+
+    <div class="quality-row">
+      <div>
+        <div class="frame-shot"><img src="images/frame-detail.jpg" alt="Close-up corner detail of the black floating frame"></div>
+        <div class="frame-shot-cap">Black floating frame</div>
+      </div>
+      <div class="quality-list">
+        <div class="q-item">
+          <span class="q-num mono">01</span>
+          <div><h3>Black floating frame</h3><p>A sophisticated black frame that gives the photograph a clean, contemporary gallery presentation.</p></div>
+        </div>
+        <div class="q-item">
+          <span class="q-num mono">02</span>
+          <div><h3>Premium canvas</h3><p>Large-format photographic artwork professionally produced for a rich, dimensional presentation.</p></div>
+        </div>
+        <div class="q-item">
+          <span class="q-num mono">03</span>
+          <div><h3>Free shipping</h3><p>Complimentary shipping is included with both the 36&Prime; &times; 54&Prime; and 48&Prime; &times; 72&Prime; sizes, within the contiguous United States.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stl">
+  <div class="wrap stl-grid">
+    <div>
+      <span class="eyebrow">A St. Louis story</span>
+      <h2>A connection to St. Louis</h2>
+    </div>
+    <div class="stl-body">
+      <p>Since Charles Lindbergh's historic solo flight across the Atlantic in 1927, the Spirit of St. Louis has been inseparable from the city's aviation heritage &mdash; named in honor of the St. Louis financial backers who funded the flight itself.</p>
+      <p>This photograph was taken at the Missouri History Museum in Forest Park, not far from Lambert Airport, where the photographer first encountered the aircraft years ago. It's a piece made in St. Louis, about St. Louis, for anyone who feels that history too.</p>
+      <div class="tag-row">
+        <span class="tag">St. Louis</span>
+        <span class="tag">Lambert Airport</span>
+        <span class="tag">Missouri History Museum</span>
+        <span class="tag">Forest Park</span>
+        <span class="tag">Charles Lindbergh</span>
+        <span class="tag">The Spirit of St. Louis</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="wrap about-grid">
+    <div class="about-photo"><img src="images/photographer-portrait.jpg" alt="Portrait of photographer Daniel Yaroschevsky holding a Nikon camera"></div>
+    <div>
+      <span class="eyebrow">About the photographer</span>
+      <h2>Daniel Yaroschevsky</h2>
+      <span class="about-role">St. Louis, Missouri</span>
+      <div class="about-body">
+        <p>Daniel Yaroschevsky is a Saint Louis&ndash;based photographer working across architectural, fine-art, and portrait photography. His work is grounded in patience &mdash; waiting for the right light, the right angle, the detail most people walk past &mdash; and in a lasting interest in the stories objects and places carry with them.</p>
+        <p>The Spirit of St. Louis is a personal project born from that interest: a lifelong fascination with the aircraft that became an enduring part of this city's aviation history, photographed where it now hangs, at the Missouri History Museum in Forest Park.</p>
+      </div>
+      <p class="about-sig">&ldquo;Every place has a story waiting for someone patient enough to find it.&rdquo;</p>
+    </div>
+  </div>
+</section>
+
+<section class="pro">
+  <div class="wrap">
+    <div class="pro-box">
+      <div>
+        <span class="eyebrow">For professional spaces</span>
+        <h2>A distinctive statement for professional spaces</h2>
+        <p>The Spirit of St. Louis brings aviation history, St. Louis heritage, and fine-art photography together in a striking piece designed for offices, reception areas, conference rooms, executive spaces, and private studies.</p>
+      </div>
+      <ul class="pro-list">
+        <li>Law offices</li>
+        <li>Executive offices</li>
+        <li>Financial firms</li>
+        <li>Corporate offices</li>
+        <li>Healthcare organizations</li>
+        <li>Aviation &amp; aerospace companies</li>
+        <li>Hotels</li>
+        <li>Universities</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="inquire">
+  <div class="wrap final-inner">
+    <span class="eyebrow">Own the piece</span>
+    <h2>Bring the spirit of flight into your space</h2>
+    <p>&ldquo;From Lambert Airport to the Missouri History Museum, this aircraft has been part of my connection to St. Louis and aviation for years. Now you can bring that story into your own space.&rdquo;</p>
+
+    <div class="final-sizes">
+      <div class="final-size">
+        <div class="name">36&Prime; &times; 54&Prime;</div>
+        <div class="price mono">$795</div>
+        <div class="ship">Free shipping</div>
+        <a href="https://buy.stripe.com/28EaEX0q6cg41mqbxcfEk01" class="btn btn-secondary" data-track="final_cta_36x54" data-size="36&#34; &times; 54&#34;" data-price="795" target="_blank" rel="noopener">Buy 36&Prime; &times; 54&Prime;</a>
+      </div>
+      <div class="final-size">
+        <div class="name">48&Prime; &times; 72&Prime;</div>
+        <div class="price mono">$1,095</div>
+        <div class="ship">Free shipping</div>
+        <a href="https://buy.stripe.com/6oU00jb4Keoc6GKat8fEk00" class="btn btn-brass" data-track="final_cta_48x72" data-size="48&#34; &times; 72&#34;" data-price="1095" target="_blank" rel="noopener">Buy 48&Prime; &times; 72&Prime;</a>
+      </div>
+      <p class="trust-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><rect x="3" y="11" width="18" height="10" rx="1.5"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+        Checkout is handled securely by Stripe &mdash; your card details are never seen or stored by us.
+      </p>
+    </div>
+
+    <div class="trust">
+      <p>This photograph is an original work by the photographer, taken at the Missouri History Museum in Forest Park, St. Louis.</p>
+      <p>The aircraft depicted is a faithful replica of the Spirit of St. Louis, the aircraft Charles Lindbergh flew across the Atlantic in 1927 &mdash; not the original aircraft itself. The replica also appeared in the film <em>The Spirit of St. Louis</em>, starring Jimmy Stewart.</p>
+      <p>Room settings shown are AI-generated visualizations for scale and placement, not photographs of an actual installation.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; <span id="year"></span> Daniely Studio &middot; <a href="https://daniely.studio/terms-of-service" target="_blank" rel="noopener">Terms of Service</a> &middot; <a href="https://daniely.studio/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a> &middot; <a href="mailto:support@daniely.studio">support@daniely.studio</a>
+</footer>
+
+<div class="sticky-bar" id="stickyBar">
+  <div class="sel"><span id="stickyLabel">Choose your size</span><b id="stickyPrice">From $795</b></div>
+  <a href="#sizes" id="stickyBtn" class="btn btn-brass" data-track="sticky_cta">Choose Size</a>
+</div>
+
+<script>
+(function(){
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Lightweight conversion tracking scaffold.
+  // Pushes GA4-style ecommerce events to window.dataLayer.
+  // Wire an actual GTM/GA4 container id, and replace the "#" href on each
+  // BUY button with the real product/checkout URL, before running ads traffic.
+  window.dataLayer = window.dataLayer || [];
+  function track(name, detail){
+    try{
+      window.dataLayer.push(Object.assign({event: name}, detail || {}));
+      console.log('[track]', name, detail || {});
+    }catch(e){}
+  }
+  track('page_view', {page: 'spirit_of_st_louis_landing'});
+
+  var stickyLabel = document.getElementById('stickyLabel');
+  var stickyPrice = document.getElementById('stickyPrice');
+  var stickyBtn = document.getElementById('stickyBtn');
+
+  document.querySelectorAll('[data-track]').forEach(function(el){
+    el.addEventListener('click', function(){
+      var name = el.getAttribute('data-track');
+      var size = el.getAttribute('data-size');
+      var price = el.getAttribute('data-price');
+      var href = el.getAttribute('href');
+      if(size && price){
+        track('select_item', {item_name:'Spirit of St. Louis Canvas', item_variant:size, price:Number(price)});
+        if(stickyLabel && stickyPrice){
+          stickyLabel.textContent = size;
+          stickyPrice.textContent = '$' + price;
+        }
+        if(stickyBtn && href && href.indexOf('buy.stripe.com') !== -1){
+          stickyBtn.setAttribute('href', href);
+          stickyBtn.setAttribute('target', '_blank');
+          stickyBtn.setAttribute('rel', 'noopener');
+          stickyBtn.textContent = 'Buy Now';
+        }
+      } else {
+        track(name);
+      }
+    });
+  });
+
+  // Reveal-on-scroll for section headings (respects reduced motion).
+  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.style.transition = 'opacity .8s ease, transform .8s ease';
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = 'translateY(0)';
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.15});
+    document.querySelectorAll('.eyebrow, .story h2, .sizes-head h2, .visual-head h2, .stl h2, .pro-box h2').forEach(function(el){
+      el.style.opacity = 0;
+      el.style.transform = 'translateY(16px)';
+      io.observe(el);
+    });
+  }
+})();
+</script>
+
+</body></html>
