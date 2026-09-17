@@ -394,6 +394,9 @@
     .sticky-bar{ display:flex; }
     body{ padding-bottom:74px; }
   }
+  @media (max-width: 640px){
+    .hero-img{ object-position:35% 50%; }
+  }
   @media (prefers-reduced-motion: reduce){
     .hero-img, .hero-content{ animation:none !important; }
   }
