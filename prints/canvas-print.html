@@ -1,0 +1,301 @@
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V417032G7X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-V417032G7X');
+</script>
+<title>Fine Art Print Quality</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&family=Space+Mono:wght@400;700&display=swap');
+
+  :root{
+    --ink-900:#15161a;
+    --ink-700:#34363d;
+    --ink-500:#6a6c72;
+    --paper-050:#eeece5;
+    --paper-100:#e2ded1;
+    --paper-000:#f7f6f2;
+    --brass:#a6813c;
+    --brass-dim:#7c6029;
+    --brass-bright:#c49a4c;
+    --line-on-dark:rgba(238,236,229,0.16);
+    --line-on-light:rgba(21,22,26,0.14);
+    --bg:var(--paper-000);
+    --fg:var(--ink-900);
+    --surface:var(--paper-050);
+    --panel-dark:var(--ink-900);
+    --panel-dark-fg:var(--paper-050);
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#101114; --fg:#eeece5; --surface:#1a1b20;
+      --panel-dark:#0c0d10; --panel-dark-fg:#eeece5;
+      --line-on-light:rgba(238,236,229,0.14);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#101114; --fg:#eeece5; --surface:#1a1b20;
+    --panel-dark:#0c0d10; --panel-dark-fg:#eeece5;
+    --line-on-light:rgba(238,236,229,0.14);
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--fg);
+    font-family:'Source Serif 4', Georgia, 'Times New Roman', serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:'Fraunces', Georgia, serif; text-wrap:balance; margin:0; font-weight:600;}
+  p{margin:0 0 1.1em; line-height:1.7;}
+  a{color:var(--brass-dim); text-decoration-color:rgba(166,129,60,0.4);}
+  a:hover{color:var(--brass);}
+  .mono{font-family:'Space Mono', 'Courier New', monospace;}
+  .wrap{max-width:900px; margin:0 auto; padding-left:clamp(20px,5vw,24px); padding-right:clamp(20px,5vw,24px);}
+
+  .eyebrow{
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--brass);
+    display:inline-flex;
+    align-items:center;
+    gap:0.6em;
+  }
+  .eyebrow::before{content:"";width:1.4em;height:1px;background:var(--brass);display:inline-block;}
+  .eyebrow.on-dark{ color:var(--brass-bright); }
+  .eyebrow.on-dark::before{ background:var(--brass-bright); }
+
+  /* top bar */
+  .top-bar{
+    background:var(--panel-dark); color:var(--panel-dark-fg);
+    font-family:'Space Mono',monospace; font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase;
+    padding:14px 20px;
+    display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+  }
+  .top-bar a{ color:var(--panel-dark-fg); opacity:0.75; text-decoration:none; }
+  .top-bar a:hover{ opacity:1; color:var(--brass-bright); }
+  .top-bar .brand{ color:var(--paper-050); opacity:1; letter-spacing:0.12em; }
+  .top-bar nav{ display:flex; gap:20px; }
+  .top-bar nav a.current{ color:var(--brass-bright); opacity:1; }
+  @media (max-width: 640px){
+    .top-bar{ flex-direction:column; align-items:flex-start; gap:8px; }
+  }
+
+  /* hero */
+  .hero{
+    background:var(--panel-dark); color:var(--panel-dark-fg);
+    padding:clamp(60px,10vw,110px) 0 clamp(50px,8vw,80px);
+    text-align:center;
+  }
+  .hero .wrap{ max-width:720px; }
+  .hero h1{
+    margin-top:16px;
+    font-size:clamp(2rem,4.6vw,3.1rem);
+    color:var(--paper-050);
+  }
+  .hero p{
+    margin-top:22px;
+    font-size:1.05rem;
+    color:rgba(238,236,229,0.85);
+    max-width:60ch; margin-left:auto; margin-right:auto;
+  }
+  .hero p:last-of-type{ margin-bottom:0; }
+
+  /* feature sections */
+  .feature{ padding:clamp(50px,8vw,84px) 0; border-top:1px solid var(--line-on-light); }
+  .feature.alt{ background:var(--surface); }
+  .feature-num{ font-family:'Space Mono',monospace; font-size:0.74rem; color:var(--brass-dim); letter-spacing:0.06em; display:block; margin-bottom:10px; }
+  .feature h2{ font-size:clamp(1.5rem,3vw,2rem); margin-top:2px; }
+  .feature p{ margin-top:18px; max-width:62ch; font-size:1rem; color:var(--fg); opacity:0.78; }
+
+  .callout{
+    margin-top:22px;
+    display:inline-flex; align-items:center; gap:10px;
+    border:1px solid var(--brass);
+    border-radius:6px;
+    padding:14px 20px;
+    font-family:'Space Mono',monospace;
+    font-size:0.82rem;
+    letter-spacing:0.02em;
+    color:inherit;
+    opacity:0.9;
+    background:rgba(166,129,60,0.06);
+  }
+  .callout svg{ flex:0 0 auto; color:var(--brass); }
+
+  /* promise section */
+  .promise{ background:var(--panel-dark); color:var(--panel-dark-fg); padding:clamp(60px,9vw,100px) 0; }
+  .promise-head{ text-align:center; max-width:52ch; margin:0 auto clamp(36px,5vw,48px); }
+  .promise-head h2{ font-size:clamp(1.8rem,3.4vw,2.4rem); margin-top:14px; color:var(--paper-050); }
+  .promise-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(28px,4vw,40px); }
+  .promise-item{ border-top:1px solid var(--line-on-dark); padding-top:22px; }
+  .promise-num{ font-family:'Space Mono',monospace; font-size:0.78rem; color:var(--brass-bright); }
+  .promise-item h3{ font-size:1.15rem; margin-top:12px; color:var(--paper-050); }
+  .promise-item p{ margin-top:10px; font-size:0.94rem; color:rgba(238,236,229,0.75); }
+  @media (max-width: 780px){ .promise-grid{ grid-template-columns:1fr; } }
+
+  /* final CTA */
+  .final-cta{ background:var(--bg); padding:clamp(64px,10vw,110px) 0; text-align:center; }
+  .final-cta .wrap{ max-width:640px; }
+  .final-cta h2{ font-size:clamp(1.9rem,3.8vw,2.6rem); margin-top:14px; }
+  .final-cta > .wrap > p{ margin-top:18px; font-size:1.02rem; color:var(--fg); opacity:0.65; }
+  .attr-list{
+    margin-top:32px; padding:0; list-style:none;
+    display:flex; flex-direction:column; gap:12px;
+    font-family:'Space Mono',monospace; font-size:0.84rem; letter-spacing:0.02em;
+    color:var(--fg); opacity:0.85; text-align:left;
+    max-width:460px; margin-left:auto; margin-right:auto;
+  }
+  .attr-list li{ display:flex; align-items:flex-start; gap:10px; }
+  .attr-list li::before{ content:"—"; color:var(--brass); flex:0 0 auto; }
+  .btn{
+    font-family:'Space Mono',monospace;
+    font-size:0.86rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    display:inline-flex; align-items:center; justify-content:center;
+    padding:17px 34px;
+    border:1px solid transparent;
+    cursor:pointer;
+    margin-top:36px;
+    background:var(--brass); color:#141208;
+    transition:background .18s ease;
+  }
+  .btn:hover{ background:var(--brass-bright); }
+
+  footer{ background:var(--panel-dark); color:rgba(238,236,229,0.6); font-family:'Space Mono',monospace; font-size:0.7rem; text-align:center; padding:22px 16px 40px; letter-spacing:0.04em;}
+  footer a{ color:rgba(238,236,229,0.75); text-decoration:underline; }
+  footer a:hover{ color:var(--brass-bright); }
+</style>
+
+<div class="top-bar">
+  <span class="brand">Daniely Studio</span>
+  <nav>
+    <a href="https://daniely.studio/prints/spirit-of-st-louis" target="_blank" rel="noopener">Shop</a>
+    <a href="https://daniely.studio/terms-of-service" target="_blank" rel="noopener">Terms of Service</a>
+    <a href="https://daniely.studio/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
+  </nav>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow on-dark">Fine Art Print Quality</span>
+    <h1>Photography Deserves More Than an Ordinary Canvas</h1>
+    <p>Every photograph is carefully reproduced to preserve the detail, color, depth, and atmosphere of the original image.</p>
+    <p>Your artwork is professionally produced using premium fine-art materials and high-resolution printing, creating a finished piece designed for prominent display in your home, office, or commercial space.</p>
+  </div>
+</header>
+
+<section class="feature">
+  <div class="wrap">
+    <span class="feature-num">01</span>
+    <h2>Museum-Grade Fine Art Canvas</h2>
+    <p>Each photograph is printed on premium 410 g/m&sup2; Fine Art Matte Canvas, selected for its substantial weight, refined texture, and ability to reproduce exceptional photographic detail.</p>
+    <p>The matte surface minimizes distracting reflections while allowing the color, contrast, and subtle details of the photograph to remain the focus.</p>
+  </div>
+</section>
+
+<section class="feature alt">
+  <div class="wrap">
+    <span class="feature-num">02</span>
+    <h2>Professional Gicl&eacute;e Printing</h2>
+    <p>Your artwork is produced using professional gicl&eacute;e printing with pigment inks.</p>
+    <p>This high-resolution printing process produces exceptional tonal transitions, fine detail, and rich, accurate color&mdash;qualities especially important when photographs are reproduced as large-format artwork.</p>
+  </div>
+</section>
+
+<section class="feature">
+  <div class="wrap">
+    <span class="feature-num">03</span>
+    <h2>Premium 1.5&Prime; Gallery Depth</h2>
+    <p>Every canvas is professionally stretched over substantial 1.5-inch gallery-depth wood stretcher bars.</p>
+    <p>The deeper profile gives larger artwork a strong architectural presence and a finished gallery appearance when viewed both from the front and from the side.</p>
+    <div class="callout">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><path d="M20 6L9 17l-5-5"></path></svg>
+      No thin &frac34;-inch canvas profile. Every Daniely.studio canvas uses the premium 1.5-inch gallery depth.
+    </div>
+  </div>
+</section>
+
+<section class="feature alt">
+  <div class="wrap">
+    <span class="feature-num">04</span>
+    <h2>Made for Large-Format Photography</h2>
+    <p>Large artwork reveals details that can easily disappear in smaller prints.</p>
+    <p>The combination of high-resolution photography, premium canvas, pigment printing, and professional production allows architectural details, textures, highlights, shadows, and subtle tonal variations to remain visible even at substantial print sizes.</p>
+    <p>The result is artwork intended to command attention from across the room while rewarding a closer look.</p>
+  </div>
+</section>
+
+<section class="feature">
+  <div class="wrap">
+    <span class="feature-num">05</span>
+    <h2>Professionally Finished &amp; Ready to Hang</h2>
+    <p>Your canvas arrives professionally stretched and finished, ready to display.</p>
+    <p>There is no need to have the artwork stretched or mounted after delivery. Simply choose the right location and enjoy your new artwork.</p>
+  </div>
+</section>
+
+<section class="promise">
+  <div class="wrap">
+    <div class="promise-head">
+      <span class="eyebrow on-dark">Our Promise</span>
+      <h2>What you can count on</h2>
+    </div>
+    <div class="promise-grid">
+      <div class="promise-item">
+        <div class="promise-num mono">01</div>
+        <h3>Free Shipping</h3>
+        <p>Complimentary standard shipping is included throughout continental North America. Large-format artwork is professionally packaged to help protect it throughout its journey to you.</p>
+      </div>
+      <div class="promise-item">
+        <div class="promise-num mono">02</div>
+        <h3>30-Day Quality Guarantee</h3>
+        <p>Every piece is produced to professional standards. If your artwork arrives damaged or has a manufacturing or print-quality defect, contact us within 30 days of delivery and we'll work with you to make it right.</p>
+      </div>
+      <div class="promise-item">
+        <div class="promise-num mono">03</div>
+        <h3>Personal Support</h3>
+        <p>Purchasing large-format artwork can come with questions&mdash;especially when choosing the right size for your space. If you need assistance before or after your purchase, personal support is available to help.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="wrap">
+    <span class="eyebrow">Photography. Professionally Produced.</span>
+    <h2>From the original photograph to the finished canvas on your wall</h2>
+    <p>Every piece is created to showcase the detail and character of the image.</p>
+    <ul class="attr-list">
+      <li>Premium 410 g/m&sup2; Fine Art Canvas</li>
+      <li>Professional Gicl&eacute;e Pigment Printing</li>
+      <li>1.5&Prime; Gallery-Depth Construction</li>
+      <li>Ready to Hang</li>
+      <li>Free Shipping Throughout Continental North America</li>
+      <li>30-Day Quality Guarantee</li>
+    </ul>
+    <div>
+      <a href="https://daniely.studio/prints/spirit-of-st-louis" class="btn">Explore the Collection &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; <span id="year"></span> Daniely Studio &middot; <a href="https://daniely.studio/terms-of-service" target="_blank" rel="noopener">Terms of Service</a> &middot; <a href="https://daniely.studio/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a> &middot; <a href="mailto:support@daniely.studio">support@daniely.studio</a>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
