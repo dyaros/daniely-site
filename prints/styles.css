@@ -307,6 +307,9 @@
   .quality-list{ display:flex; flex-direction:column; gap:26px; }
   .quality-list h3{ font-size:1.15rem; font-weight:600; }
   .quality-list .q-item{ display:flex; gap:18px; align-items:flex-start; }
+  .canvas-attrs{ margin-top:10px; font-size:0.74rem; letter-spacing:0.03em; color:var(--brass-dim); }
+  .canvas-learn-more{ display:inline-block; margin-top:10px; font-family:'Space Mono',monospace; font-size:0.78rem; letter-spacing:0.03em; color:var(--brass-dim); text-decoration:underline; text-underline-offset:3px; }
+  .canvas-learn-more:hover{ color:var(--brass); }
   .q-num{ font-family:'Space Mono',monospace; font-size:0.78rem; color:var(--brass); padding-top:5px; }
   .q-item p{ margin-top:6px; font-size:0.95rem; color:var(--ink-500); max-width:44ch; }
 
