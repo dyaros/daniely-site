@@ -173,6 +173,17 @@
   .btn-secondary:hover{ background:var(--brass-bright); }
   .btn-dark{ background:var(--panel-dark); color:var(--paper-050); border-color:var(--panel-dark); }
   .btn-dark:hover{ background:#000; }
+  .hero-visual-link{
+    display:block;
+    margin-top:18px;
+    font-size:0.78rem;
+    letter-spacing:0.04em;
+    color:rgba(238,236,229,0.6);
+    text-decoration:underline;
+    text-underline-offset:3px;
+  }
+  .hero-visual-link:hover{ color:var(--brass-bright); }
+
   .hero-meta{
     margin-top:30px;
     font-family:'Space Mono',monospace;
