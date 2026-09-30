@@ -807,8 +807,6 @@
 
   // Lightweight conversion tracking scaffold.
   // Pushes GA4-style ecommerce events to window.dataLayer.
-  // Wire an actual GTM/GA4 container id, and replace the "#" href on each
-  // BUY button with the real product/checkout URL, before running ads traffic.
   window.dataLayer = window.dataLayer || [];
   function track(name, detail){
     try{
@@ -817,6 +815,28 @@
     }catch(e){}
   }
   track('page_view', {page: 'spirit_of_st_louis_landing'});
+
+  // GA4 funnel events (choose_size, begin_checkout) sent via gtag.
+  // Called once from the existing click handler below, so each click sends one event.
+  var GA4_CHECKOUT_ITEMS = {
+    'https://buy.stripe.com/fZu00jdcSeoc8OS1WCfEk05': {item_id:'spirit-st-louis-36x54', item_name:'Spirit of St. Louis 36x54', price:1195},
+    'https://buy.stripe.com/6oU28r1uabc0fdg1WCfEk06': {item_id:'spirit-st-louis-48x72', item_name:'Spirit of St. Louis 48x72', price:1695}
+  };
+  function sendGa4FunnelEvent(name, href){
+    try{
+      if(typeof gtag !== 'function') return;
+      var item = href && GA4_CHECKOUT_ITEMS[href];
+      if(item){
+        gtag('event', 'begin_checkout', {
+          currency: 'USD',
+          value: item.price,
+          items: [{item_id:item.item_id, item_name:item.item_name, price:item.price, quantity:1}]
+        });
+      } else if(name === 'cta_choose_size' || name === 'sticky_cta'){
+        gtag('event', 'choose_size', {product: 'Spirit of St. Louis'});
+      }
+    }catch(e){}
+  }
 
   var stickyLabel = document.getElementById('stickyLabel');
   var stickyPrice = document.getElementById('stickyPrice');
@@ -828,6 +848,7 @@
       var size = el.getAttribute('data-size');
       var price = el.getAttribute('data-price');
       var href = el.getAttribute('href');
+      sendGa4FunnelEvent(name, href);
       if(size && price){
         track('select_item', {item_name:'Spirit of St. Louis Canvas', item_variant:size, price:Number(price)});
         if(stickyLabel && stickyPrice){
