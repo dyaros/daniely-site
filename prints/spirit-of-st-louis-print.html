@@ -492,6 +492,32 @@
 
     /* pro */
     .pro-box{ gap:0; }
+
+    /* ---- final mobile refinements (2026-09-29) ---- */
+    /* 1. compact sticky bar */
+    .sticky-bar{ padding:7px 14px calc(7px + env(safe-area-inset-bottom)); }
+    .sticky-bar .btn{ padding:10px 20px; }
+    /* 2. policy line contrast */
+    .order-note{ color:color-mix(in srgb, var(--fg) 80%, transparent); }
+    .final .order-note{ color:rgba(238,236,229,0.9); }
+    /* 3. professional spaces sentence contrast */
+    .pro-box p.m-only{ color:color-mix(in srgb, var(--fg) 82%, transparent); }
+    /* 4. etsy line contrast */
+    .etsy-quiet a{ color:color-mix(in srgb, var(--fg) 78%, transparent); }
+    /* 5. tighter gap before the story */
+    .sizes{ padding-bottom:40px; }
+    .story{ padding-top:36px; }
+    /* 6. redundant size note */
+    .size-note{ display:none; }
+    /* 7. compact closing size cards */
+    .final-sizes{ gap:12px; }
+    .final-size{ display:grid; grid-template-columns:1fr auto; align-items:baseline; column-gap:12px; padding:14px 16px; }
+    .final-size .price{ margin-top:0; }
+    .final-size .ship{ grid-column:1 / -1; margin-top:2px; }
+    .final-size .btn{ grid-column:1 / -1; margin-top:12px; }
+    /* 9. bottom clearance lives in the dark footer (no light band under it) */
+    body{ padding-bottom:0; }
+    footer{ padding-bottom:calc(84px + env(safe-area-inset-bottom)); }
   }
 </style><!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-V417032G7X"></script>
